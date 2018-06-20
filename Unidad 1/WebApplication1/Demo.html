@@ -2,9 +2,38 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>Titulo Diplomado</title>
+  
 </head>
 <body>
+    <h1>Titulo Diplomado</h1>
     Hola desde <strong>Demo!</strong>
+    <script>
+
+        window.onload = function () {
+            console.log('pagina cargada');
+
+            var elem = window.document.getElementsByTagName("h1");
+            elem[0].innerHTML = "Diplomado ASP.NET Core " + app.comunes.metodo2("2.1");
+        };
+
+
+        var app = function () {
+
+            var self = {};
+
+            self.metodo1 = function (a) {
+                console.log(a);
+            }
+
+            return self;
+
+        }();
+
+       
+
+    </script>
+    <script src="demo.js"></script>
+
 </body>
 </html>
