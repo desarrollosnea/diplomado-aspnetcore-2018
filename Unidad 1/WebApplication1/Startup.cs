@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -27,7 +28,34 @@ namespace WebApplication1
 
             app.Run(async (context) =>
             {
-                await context.Response.WriteAsync("Hello World!");
+                switch (context.Request.Path)
+                {
+                    case "/":
+                        var sb = new StringBuilder();
+                        sb.Append("<html>");
+                        sb.Append("<head>");
+                        sb.Append("<title> Ole | Diplomado ASP.NET Core 2.1</title>");
+                        sb.Append("</head>");
+                        sb.Append("<body>");
+                        sb.Append("<h1>Hola Diplomado</h1>");
+                        sb.Append("</body>");
+                        sb.Append("</html>");
+
+                        await context.Response.WriteAsync(sb.ToString());
+                        break;
+                    case "/demo.html":
+                        var htmlContenido = System.IO.File.ReadAllText("demo.html");
+                        await context.Response.WriteAsync(htmlContenido);
+                        break;
+                    case "/demo.js":
+                        var jsContenido = System.IO.File.ReadAllText("demo.js");
+                        await context.Response.WriteAsync(jsContenido);
+                        break;
+                    default:
+                        context.Response.StatusCode = 404;
+                        break;
+                }
+               
             });
         }
     }
