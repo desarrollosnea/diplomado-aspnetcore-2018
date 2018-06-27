@@ -1,0 +1,78 @@
+﻿@using Prode.App.Entidades
+@model Partido
+@{
+	ViewData["Title"] = "ResultadoPartido";
+
+}
+
+@if (ViewBag.MostrarResultado) {
+<div>
+	<strong>Equipos </strong> &nbsp; Equipo Local: <strong>@ViewData["EquipoLocal"] vs @ViewData["EquipoVisitante"]</strong>
+</div>
+
+<h2>Resultado del partido: @ViewData["Resultado"]</h2>
+
+
+<div>
+	<strong>Equipos </strong> &nbsp; Equipo Local: <strong>@Model.EquipoLocal.Nombre vs @Model.EquipoVisitante.Nombre</strong>
+</div>
+
+<h2>Resultado del partido: @Model.InformarResultado</h2>
+
+
+
+
+
+
+@*<button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Ganador</button>
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#show">GanadorModal</button>*@
+
+
+
+@*<div class="modal" id="show" tabindex="-1">
+	@if (Model.InformarResultado == "Ganó Argentina")
+
+	{
+
+		<div class="alert alert-success" role="alert">
+			 @Model.InformarResultado - @ViewData["Resultado"]
+		</div>
+
+
+	}
+	else
+	{
+		<div class="alert alert-danger" role="alert">
+		Perdio Argentina!!!! :(
+		</div>
+
+	}
+</div>
+
+<div class="modal" id="exampleModal" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">Modal title</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<p>Modal body text goes here.</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		
+			</div>
+		</div>
+	</div>
+</div>*@
+}
+else
+{
+<h2>Mostrar resultado es FALSO</h2>
+
+}
+
+
