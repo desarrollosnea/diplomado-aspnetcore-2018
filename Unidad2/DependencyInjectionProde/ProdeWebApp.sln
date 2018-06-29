@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prode.Core.Entidades.Interf
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prode.Core.Entidades", "Prode.Core.Entidades\Prode.Core.Entidades.csproj", "{AF9AB605-C783-425A-967F-604620D76E2B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prode.Core.Formateadores", "Prode.Core.Formateadores\Prode.Core.Formateadores.csproj", "{2554BF51-1957-403E-8A54-BD44A1DC92DA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{AF9AB605-C783-425A-967F-604620D76E2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF9AB605-C783-425A-967F-604620D76E2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF9AB605-C783-425A-967F-604620D76E2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2554BF51-1957-403E-8A54-BD44A1DC92DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2554BF51-1957-403E-8A54-BD44A1DC92DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2554BF51-1957-403E-8A54-BD44A1DC92DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2554BF51-1957-403E-8A54-BD44A1DC92DA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

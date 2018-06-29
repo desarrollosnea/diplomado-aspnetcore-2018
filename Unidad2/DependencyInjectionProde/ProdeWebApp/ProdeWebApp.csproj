@@ -14,6 +14,13 @@
   <ItemGroup>
     <ProjectReference Include="..\Prode.Core.Entidades.Interfaces\Prode.Core.Entidades.Interfaces.csproj" />
     <ProjectReference Include="..\Prode.Core.Entidades\Prode.Core.Entidades.csproj" />
+    <ProjectReference Include="..\Prode.Core.Formateadores\Prode.Core.Formateadores.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Views\Equipo\Index2.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
   </ItemGroup>
 
 </Project>
