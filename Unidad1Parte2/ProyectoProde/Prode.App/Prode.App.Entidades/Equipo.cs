@@ -10,5 +10,7 @@ namespace Prode.App.Entidades
 
 		public string Nombre { get; set; }
 
+		public string Abreviatura { get; set; }
+
 	}
 }
