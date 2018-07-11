@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Ambiente";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>Ambiente: @ViewBag.Ambiente</h2>
+        <ul>
+            <li>
+                ViewBag.IsDevelopment = @ViewBag.IsDevelopment
+            </li>
+            <li>
+                ViewBag.IsStaging =  @ViewBag.IsStaging
+            </li>
+            <li>
+                ViewBag.IsProduction = @ViewBag.IsProduction
+            </li>
+        </ul>
+    </div>
+</div>
