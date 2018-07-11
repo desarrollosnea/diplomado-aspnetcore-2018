@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Login</h2>
+
+<form action="/account/login" method="post">
+
+    <input type="text" name="Username" value="jose@ucp.edu.ar" />
+
+    <input type="submit" name="btnIngresar" value="Ingresar" class="btn btn-info navbar-btn" />
+</form>
