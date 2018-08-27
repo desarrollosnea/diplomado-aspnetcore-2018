@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Core.Entidades.DB.PartidoCompleto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.Fecha)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Local)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Visitante)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.GolesLocal)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.GolesVisitante)
+			</th>
+			<th></th>
+		</tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+		<tr>
+			<td>
+				@Html.DisplayFor(modelItem => item.Fecha)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Local)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Visitante)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.GolesLocal)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.GolesVisitante)
+			</td>
+		</tr>
+}
+    </tbody>
+</table>
