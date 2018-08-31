@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Threading.Tasks;
 using Core.Entidades.DB;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
 
-namespace Api.Web.Prode.Controllers
+namespace web.Api.Prode.Otro.Controllers
 {
 	[Route("api/[controller]")]
 	[ApiController]
@@ -20,84 +18,76 @@ namespace Api.Web.Prode.Controllers
 			_cache = cache;
 			_cache.CreateEntry("TorneosPrueba");
 		}
-		
-		
 		// GET api/values
 		[HttpGet]
 		public ActionResult<List<Torneo>> Get()
 		{
-			var Torneos = new List<Torneo>();
-			if (Torneos == null) {
-				return new List<Torneo>();
-			}
-			else
-			{
-				var cacheEntry = _cache.GetOrCreate("Torneos", Entry =>
+			var torneos = new List<Torneo>();
+			var cacheEntry = _cache.GetOrCreate("Torneos", Entry =>
 				{
-					return Torneos;
+					return torneos;
+				}
+			);
+			//string json = Newtonsoft.Json.JsonConvert.SerializeObject(torneos);
 
-				});
-				string jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(Torneos);
-
-				return cacheEntry.ToList();
-			}
-			
+			return cacheEntry.ToList();
 		}
 
 		// GET api/values/5
 		[HttpGet("{id}")]
 		public ActionResult<string> Get(int id)
 		{
-			var Torneos = new List<Torneo>();
+			var torneos = new List<Torneo>();
 			var cacheEntry = _cache.GetOrCreate("Torneos", Entry =>
 			{
-				return Torneos;
+				return torneos;
 
 			});
 			foreach (var torneo in cacheEntry)
 			{
-				if(torneo.TorneoId == id)
+				if (torneo.TorneoId == id)
 				{
-					return Ok("El torneo del id buscado es" + torneo.Nombre);
+					string json = Newtonsoft.Json.JsonConvert.SerializeObject(torneo);
+
+					return Ok(json);
 				}
 				else
 				{
 					return BadRequest("No se encontro el torneo buscado con el id:" + id);
 				}
 			}
-			
+
 			return BadRequest("No tenemos ningun torneo asociado");
+
 		}
 
 		// POST api/values
 		[HttpPost]
-		public ActionResult Post([FromBody] Torneo torneo)
+		public ActionResult Post([FromBody] TorneoValidate torneo)
 		{
-		
 			if (!ModelState.IsValid)
 			{
 				return BadRequest(ModelState);
 			}
 			else
 			{
-				var Torneos = new List<Torneo>();
-				
-				
+				var torneos = new List<Torneo>();
+
+
 				var cacheEntry = _cache.GetOrCreate("Torneos", Entry =>
 				{
-					return Torneos;
+					return torneos;
 				});
 				cacheEntry.Add(torneo);
 				_cache.Set("Torneos", cacheEntry);
 				string jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(cacheEntry);
-				return Ok("Se ha agregado el torneo" + jsonString);
+				return Ok(jsonString);
 			}
-
 		}
 
 		// PUT api/values/5
 		[HttpPut("{id}")]
-		public void Put(int id, [FromBody] Torneo torneo)
+		public ActionResult Put(int id, [FromBody] Torneo torneo)
 		{
 			var Torneos = new List<Torneo>();
 			var cacheEntry = _cache.GetOrCreate("Torneos", Entry =>
@@ -107,7 +97,7 @@ namespace Api.Web.Prode.Controllers
 			});
 			foreach (var item in cacheEntry)
 			{
-				if(item.TorneoId == id)
+				if (item.TorneoId == id)
 				{
 					item.Temporada = torneo.Temporada;
 					item.Nombre = torneo.Nombre;
@@ -115,10 +105,7 @@ namespace Api.Web.Prode.Controllers
 				}
 			}
 			_cache.Set("Torneos", cacheEntry);
-			//var modificar = Torneos.FirstOrDefault(d => d.TorneoId == id);
-			//modificar.Temporada = torneo.Temporada;
-			//modificar.Nombre = torneo.Nombre;
-
+			return Ok(cacheEntry.ToList());
 		}
 
 		// DELETE api/values/5
@@ -127,7 +114,7 @@ namespace Api.Web.Prode.Controllers
 		{
 			if (id == 0)
 			{
-					return BadRequest("El id es nulo");
+				return BadRequest("El id es nulo");
 			}
 			var Torneos = new List<Torneo>();
 			var cacheEntry = _cache.GetOrCreate("Torneos", Entry =>
@@ -146,27 +133,6 @@ namespace Api.Web.Prode.Controllers
 
 			_cache.Set("Torneos", cacheEntry);
 			return Ok("Se elimino su elemento correctamente");
-		}
-
-
-		[HttpGet]
-		[Route("getQuery")]
-		public IActionResult GetQuery([FromQuery] Torneo torneo)
-		{
-			return Ok(torneo);
-		}
-		[HttpPost]
-		[Route("archivo")]
-		public ActionResult Archivo (IFormFile archivo)
-		{
-			if(archivo == null)
-			{
-				return BadRequest("El id es nulo");
-			}
-			else
-			{
-				return Ok("Muy bien!!!!");
-			}
 		}
 	}
 }
