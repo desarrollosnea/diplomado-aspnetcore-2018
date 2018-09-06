@@ -1,0 +1,130 @@
+﻿@model IEnumerable<PartidoCompleto>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Local)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Visitante)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Torneo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Temporada)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GolesLocal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GolesVisitante)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TarjetaAmarillaLocal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TarjetaAmarillaVisitante)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TarjetaRojaLocal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TarjetaRojaVisitante)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fecha)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Local)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Visitante)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Torneo)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Temporada)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GolesLocal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GolesVisitante)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TarjetaAmarillaLocal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TarjetaAmarillaVisitante)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.TarjetaRojaLocal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TarjetaRojaVisitante)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@*<table id="example" class="display" style="width:100%">
+    <thead>
+        <tr>
+            <th>Fecha</th>
+            <th>Local</th>
+            <th>Visitante</th>
+            <th>Torneo</th>
+            <th>Temporada</th>
+            <th>GolesLocal</th>
+            <th>GolesVisitante</th>
+            <th>TarjetaAmarillaLocal</th>
+            <th>TarjetaAmarillaVisitante</th>
+            <th>TarjetaRojaLocal</th>
+            <th>TarjetaRojaVisitante</th>
+        </tr>
+    </thead>
+</table>
+
+<script>
+    $(document).ready(function () {
+        $('#example').DataTable({
+            "ajax": {
+                "url": "http://localhost:36805/api/partido",
+                "dataSrc": ""
+            },
+            columns: [
+                { data: 'fecha' },
+                { data: 'local' },
+                { data: 'visitante' },
+                { data: 'torneo' },
+                { data: 'temporada' },
+                { data: 'golesLocal' },
+                { data: 'golesVisitante' },
+                { data: 'tarjetaAmarillaLocal' },
+                { data: 'tarjetaAmarillaVisitante' },
+                { data: 'tarjetaRojaLocal' },
+                { data: 'tarjetaRojaVisitante' }
+            ]
+        });
+    });
+</script>*@
