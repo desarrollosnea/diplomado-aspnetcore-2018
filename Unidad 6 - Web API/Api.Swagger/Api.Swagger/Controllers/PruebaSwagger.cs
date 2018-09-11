@@ -21,7 +21,7 @@ namespace Api.Swagger.Controllers
        
         public ActionResult<IEnumerable<string>> Get()
         {
-            return new string[] { "value1", "value2" };
+            return new string[] { "Melanie", "Ernst" };
         }
 
         // GET api/values/5
