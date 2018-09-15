@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using swagger;
 
 namespace WebApplication1.Controllers
 {
@@ -10,18 +11,28 @@ namespace WebApplication1.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+
         // GET api/values
+  
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public IList<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            ApidePruebaconSwagger api = new ApidePruebaconSwagger
+            {
+                BaseUri = new Uri("http://localhost:57910")
+            };
+            return api.ApiPruebaSwaggerGet();
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public IList<string> Get(int id)
         {
-            return "value";
+            ApidePruebaconSwagger api = new ApidePruebaconSwagger
+            {
+                BaseUri = new Uri("http://localhost:57910")
+            };
+            return api.ApiPruebaSwaggerGet();
         }
 
         // POST api/values
