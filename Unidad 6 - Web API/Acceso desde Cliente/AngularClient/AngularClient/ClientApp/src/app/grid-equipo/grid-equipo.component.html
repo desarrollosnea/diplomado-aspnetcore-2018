@@ -1,0 +1,19 @@
+<button id="new-button" type="button" class="btn btn-primary" (click)="newRecord()">Nuevo</button>
+<table id="equipos">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Codigo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let equipo of equipos">
+      <td>{{ equipo.nombre }}</td>
+      <td>{{ equipo.codigo }}</td>
+      <td>
+        <button type="button" class="btn btn-primary" (click)="editRecord(equipo)">Editar</button>
+        <button type="button" class="btn btn-primary" (click)="deleteRecord(equipo)">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

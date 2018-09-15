@@ -1,0 +1,9 @@
+
+<div class="row">
+  <div class="col-md-4">
+    <app-add-or-update-equipo (equipoCreated)="createOrUpdateEquipo($event)" [equipoInfo]="currentEquipo"></app-add-or-update-equipo>
+  </div>
+  <div class="col-md-8">
+    <app-grid-equipo [equipos]="equipos" (editClicked)="editClicked($event)" (newClicked)="newClicked()" (recordDeleted)="deleteClicked($event)"></app-grid-equipo>
+  </div>
+</div>

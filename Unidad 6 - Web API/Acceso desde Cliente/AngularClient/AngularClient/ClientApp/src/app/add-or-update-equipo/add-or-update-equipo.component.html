@@ -1,0 +1,16 @@
+<div>
+  <h2 *ngIf="!equipoInfo || equipoInfo.equipoId === undefined">Agregar equipo</h2>
+  <h2 *ngIf="equipoInfo && equipoInfo.equipoId !== undefined">Actualizar equipo</h2>
+  <form>
+    <div class="form-group">
+      <label for="nombre-input">Nombre:</label>
+      <input type="text" id="nombre-input" [(ngModel)]="equipoInfo.nombre" class="form-control" name="nombre"/>
+    </div>
+    <div class="form-group">
+      <label for="codigo-input">Codigo</label>
+      <input type="text" id="codigo-input" [(ngModel)]="equipoInfo.codigo" class="form-control" name="codigo"/>
+    </div>
+    <button type="button" class="btn btn-primary" (click)="addOrUpdateEquipoRecord($event);">Guardar</button>
+
+  </form>
+</div>
