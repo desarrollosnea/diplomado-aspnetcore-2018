@@ -1,0 +1,37 @@
+﻿@model ProdeDBFirst.Entidades.Equipo
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Equipo</h4>
+    <hr />
+    <div class="row">
+        <div class="col-sm-2">
+            <img src="@Model.EquipoInfo.IconoUrl" alt="Icono" />
+        </div>
+        <div class="col-sm-2">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Nombre)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Codigo)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Codigo)
+                </dd>
+            </dl>
+        </div>
+    </div>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.EquipoId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

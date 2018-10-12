@@ -1,0 +1,102 @@
+﻿@model IEnumerable<ProdeDBFirst.Entidades.PartidoCompleto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+<div>
+    <h3>
+        @ViewBag.Torneo.Descripcion
+    </h3>
+</div>
+<div>
+    <h4>
+        @ViewBag.UltimaActualizacion
+    </h4>
+</div>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Local)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Visitante)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Torneo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Temporada)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GolesLocal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GolesVisitante)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TarjetaAmarillaLocal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TarjetaAmarillaVisitante)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TarjetaRojaLocal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TarjetaRojaVisitante)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Local)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Visitante)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Torneo)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Temporada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GolesLocal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GolesVisitante)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TarjetaAmarillaLocal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TarjetaAmarillaVisitante)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.TarjetaRojaLocal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TarjetaRojaVisitante)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

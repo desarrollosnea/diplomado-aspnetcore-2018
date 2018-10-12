@@ -1,0 +1,60 @@
+﻿<html>
+    <head>
+        <title></title>
+        <style type="text/css">
+            .tabla{
+                width: 100%;
+                border-collapse: collapse;
+                border: solid 1px #000000
+            }
+        </style>
+    </head>
+    <body>
+        <table class="tabla">
+            <thead>
+                <tr>
+                    <th>
+                        Fecha
+                    </th>
+                    <th>
+                        Local
+                    </th>
+                    <th>
+                        Visitante
+                    </th>
+                    <th>
+                        Goles Local
+                    </th>
+                    <th>
+                        Goles Visitante
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @item.Fecha
+                        </td>
+                        <td>
+                            @item.Local
+                        </td>
+                        <td>
+                            @item.Visitante
+                        </td>
+                        <td>
+                            @item.GolesLocal
+                        </td>
+                        <td>
+                            @item.GolesVisitante
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </body>
+</html>
+
+
